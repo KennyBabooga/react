@@ -104,6 +104,23 @@ function App() {
   );
 }
 
+function App() {
+  useState();
+  let tabContent = "Please click a button";
+  function handleSelect(selectedButton){
+    tabContent = selectedButton;
+    console.log(tabContent);
+  }
+  
+function App() {
+  let tabContent = "Please click a button";
+  function handleSelect(selectedButton){
+  //No good calling it inside this sub function
+  useState();
+  tabContent = selectedButton;
+  console.log(tabContent);
+  }
+
 export default App;
 
 import { CORE_CONCEPTS } from './data';
