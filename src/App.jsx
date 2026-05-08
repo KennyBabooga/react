@@ -71,11 +71,22 @@ import { CORE_CONCEPTS } from './data';
 import Header from './components/Header/Header.jsx';
 import TabButton from './components/TabButton.jsx';
 import CoreConcept from './components/CoreConcepts/CoreConcept.jsx';
+import { useState } from 'react';
+
+const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
+
+function genRandomInt(max){
+  return Math.floor(Math.random() * (max + 1));
+}
 
 function App() {
-  function handleSelect(){
-    console.log("Selected Button", selectedButton);
+  const [selectedTopic, setSelectedTopic] = useState('components');
+  
+  function handleSelect(selectedButton){
+    setSelectedTopic(selectedButton);
+    console.log(selectedButton);
   }
+  
   return (
     <div>
       <Header />
@@ -92,51 +103,16 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-  <TabButton isSelected={selectedTopic === 'components'} onSelect={() => handleSelect('components')}>Components</TabButton>
-
-<TabButton isSelected={selectedTopic === 'jsx'} onSelect={() => handleSelect('jsx')}>JSX</TabButton>
-
-<TabButton isSelected={selectedTopic === 'props'} onSelect={() => handleSelect('props')}>Props</TabButton>
-
-<TabButton isSelected={selectedTopic === 'state'} onSelect={() => handleSelect('state')}>State</TabButton>
-
-</menu>
+            <TabButton isSelected={selectedTopic === 'components'} onSelect={() => handleSelect('components')}>Components</TabButton>
+            <TabButton isSelected={selectedTopic === 'jsx'} onSelect={() => handleSelect('jsx')}>JSX</TabButton>
+            <TabButton isSelected={selectedTopic === 'props'} onSelect={() => handleSelect('props')}>Props</TabButton>
+            <TabButton isSelected={selectedTopic === 'state'} onSelect={() => handleSelect('state')}>State</TabButton>
+          </menu>
           Dynamic Content Here
         </section>
       </main>
     </div>
   );
-}
-
-function App() {
-  useState();
-  let tabContent = "Please click a button";
-  function handleSelect(selectedButton){
-    tabContent = selectedButton;
-    console.log(tabContent);
-  }
-  
-function App() {
-  let tabContent = "Please click a button";
-  function handleSelect(selectedButton){
-  //No good calling it inside this sub function
-  useState();
-  tabContent = selectedButton;
-  console.log(tabContent);
-  }
-
-export default App;
-
-import { CORE_CONCEPTS } from './data';
-import Header from './components/Header/Header.jsx';
-import TabButton from './components/TabButton.jsx';
-import CoreConcept from './components/CoreConcepts/CoreConcept.jsx';
-import { useState } from 'react';
-
-const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
-
-function genRandomInt(max){
-  return Math.floor(Math.random() * (max + 1));
 }
 
 export default App;
