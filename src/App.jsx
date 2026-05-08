@@ -52,6 +52,25 @@ function CoreConcept(props) {
   );
 }
 
+<ul>
+	{
+	CORE_CONCEPTS.map((concept)=><CoreConcept {...concept}/>)
+	}
+  </ul>
+</section>
+ <section id="examples">
+    <h2>Examples</h2>
+      <menu>
+        <TabButton> Item 1</TabButton>
+        <TabButton> Item 2</TabButton>
+        <TabButton> Item 3</TabButton>
+      </menu>
+</section>
+
+import Header from './Header';
+import { CORE_CONCEPTS } from './data';
+import componentsImg from './assets/components.png';
+
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
 
 function genRandomInt(max){
