@@ -67,6 +67,45 @@ function CoreConcept(props) {
       </menu>
 </section>
 
+import { CORE_CONCEPTS } from './data';
+import Header from './components/Header/Header.jsx';
+import TabButton from './components/TabButton.jsx';
+import CoreConcept from './components/CoreConcepts/CoreConcept.jsx';
+
+function App() {
+  function handleSelect(){
+    console.log("Hello World!");
+  }
+  return (
+    <div>
+      <Header />
+      <main>
+        <section id="core-concepts">
+          <h2>Time to get started!</h2>
+          <ul>
+            <CoreConcept {...CORE_CONCEPTS[0]}/>
+            <CoreConcept {...CORE_CONCEPTS[1]}/>
+            <CoreConcept {...CORE_CONCEPTS[2]}/>
+            <CoreConcept {...CORE_CONCEPTS[3]}/>   
+          </ul>
+        </section>
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+              <TabButton onSelect={handleSelect}>Components</TabButton>
+              <TabButton onSelect={handleSelect}>JSX</TabButton>
+              <TabButton onSelect={handleSelect}>Props</TabButton>
+              <TabButton onSelect={handleSelect}>State</TabButton>
+          </menu>
+          Dynamic Content Here
+        </section>
+      </main>
+    </div>
+  );
+}
+
+export default App;
+
 import Header from './Header';
 import { CORE_CONCEPTS } from './data';
 import componentsImg from './assets/components.png';
