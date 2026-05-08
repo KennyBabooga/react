@@ -74,7 +74,7 @@ import CoreConcept from './components/CoreConcepts/CoreConcept.jsx';
 
 function App() {
   function handleSelect(){
-    console.log("Hello World!");
+    console.log("Selected Button", selectedButton);
   }
   return (
     <div>
@@ -92,11 +92,11 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-              <TabButton onSelect={handleSelect}>Components</TabButton>
-              <TabButton onSelect={handleSelect}>JSX</TabButton>
-              <TabButton onSelect={handleSelect}>Props</TabButton>
-              <TabButton onSelect={handleSelect}>State</TabButton>
-          </menu>
+  <TabButton onSelect={()=>handleSelect('components')}>Components</TabButton>
+  <TabButton onSelect={()=>handleSelect('jsx')}>JSX</TabButton>
+  <TabButton onSelect={()=>handleSelect('props')}>Props</TabButton>
+  <TabButton onSelect={()=>handleSelect('state')}>State</TabButton>
+</menu>
           Dynamic Content Here
         </section>
       </main>
@@ -106,9 +106,11 @@ function App() {
 
 export default App;
 
-import Header from './Header';
 import { CORE_CONCEPTS } from './data';
-import componentsImg from './assets/components.png';
+import Header from './components/Header/Header.jsx';
+import TabButton from './components/TabButton.jsx';
+import CoreConcept from './components/CoreConcepts/CoreConcept.jsx';
+import { useState } from 'react';
 
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
 
